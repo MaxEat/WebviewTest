@@ -80,7 +80,7 @@ public class parseDataFromWebview {
     public byte[] createJsonBorrowItems() throws IOException {
         JSONObject postdata = new JSONObject();
         addToJson(postdata,"cardID", "0000");
-        addToJson(postdata, "itemTag", "aaa" );
+        addToJson(postdata, "itemTag", "AAA" );
         addToJson(postdata,"borrowLocation","my home" );
         StringEntity se = new StringEntity(postdata.toString(),"UTF-8");
         se.setContentType("application/json");

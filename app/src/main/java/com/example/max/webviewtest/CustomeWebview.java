@@ -42,8 +42,8 @@ public class CustomeWebview extends WebView {
     static final String getItemPictureURL = "https://labtools.groept.be/inventory/secure/getImages.php";
 
     static parseDataFromWebview pdw = new parseDataFromWebview();
-    static BorrowedItem bi =
-            
+
+
     public void hide() {
         setVisibility(View.GONE);
     }
@@ -62,7 +62,7 @@ public class CustomeWebview extends WebView {
 
         requestFocus();
 
-
+        addJavascriptInterface(new BorrowedItem(), "BorrowItem");
         addJavascriptInterface(pdw, "local_obj");
         getSettings().setUseWideViewPort(true);
         getSettings().setLoadWithOverviewMode(true);

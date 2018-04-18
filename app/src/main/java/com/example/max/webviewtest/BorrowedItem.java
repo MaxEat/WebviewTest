@@ -23,6 +23,8 @@ public class BorrowedItem {
     private String returnDate;
 
 
+    BorrowedItem() {}
+
     BorrowedItem(String tag) {
 
         itemTag = tag;
