@@ -48,8 +48,7 @@ public class BlankFragment2 extends Fragment{
 
 
     public void borrowItems(WebView wv) throws IOException {
-        byte[] array = pdw.createJsonBorrowItems();
-        wv.postUrl(CustomeWebview.borrowItemURL,array);
+
     }
 
     @Override
@@ -59,10 +58,17 @@ public class BlankFragment2 extends Fragment{
         WebView wv  = MainActivity.wv;
 
         try {
-            borrowItems(wv);
+            BorrowedItem a = new BorrowedItem();
+            a.setItemTag("AAAA");
+            a.setBorrowedLocation("here");
+            a.setError(100);
+            byte[] array = a.createJsonBorrowItems("0000");
+            wv.postUrl(CustomeWebview.borrowItemURL,array);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
         return view;
     }

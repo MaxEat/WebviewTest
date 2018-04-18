@@ -46,55 +46,5 @@ public class parseDataFromWebview {
         }
     }
 
-    @JavascriptInterface
-    public void login(String htmlSource){
-        Log.i("Js: login", htmlSource);
-        try {
 
-            JSONObject obj = new JSONObject(htmlSource);
-            String userName = obj.getString("email").split("@")[0].replace(".", " ");
-            String studentNumber = obj.getString("user").split("@")[0]; Log.i("user", studentNumber);
-            String email = obj.getString("email");
-            //TestJson.getUser().setUserName(userName);
-//            TestJson.getUser().setEmail(email);
-//            TestJson.getUser().setKuleuvenID(studentNumber);
-//            TestJson.getUser().register();
-
-        } catch (Throwable t) {
-            Log.e("My info", "Could not parse malformed JSON: \"" + htmlSource + "\"");
-        }
-    }
-
-
-
-    public void addToJson(JSONObject postdata, String key, String value) {
-
-        try {
-            postdata.put(key, value);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    public byte[] createJsonBorrowItems() throws IOException {
-        JSONObject postdata = new JSONObject();
-        addToJson(postdata,"cardID", "0000");
-        addToJson(postdata, "itemTag", "AAA" );
-        addToJson(postdata,"borrowLocation","my home" );
-        StringEntity se = new StringEntity(postdata.toString(),"UTF-8");
-        se.setContentType("application/json");
-        byte[] array = EntityUtils.toByteArray(se);
-        return array;
-    }
-
-    public byte[] createJsonGetItems() throws IOException {
-        JSONObject postdata = new JSONObject();
-        addToJson(postdata,"kuleuvenID", "r0609260");
-
-        StringEntity se = new StringEntity(postdata.toString(),"UTF-8");
-        se.setContentType("application/json");
-        byte[] array = EntityUtils.toByteArray(se);
-        return array;
-    }
 }

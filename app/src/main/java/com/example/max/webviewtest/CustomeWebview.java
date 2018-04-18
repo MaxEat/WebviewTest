@@ -53,9 +53,10 @@ public class CustomeWebview extends WebView {
     }
 
     @SuppressLint("JavascriptInterface")
-    public void addInterface(String name, Object object) {
+    public void addInterfaceBorrowedItem(String name, Object object) {
         addJavascriptInterface(object, name);
     }
+
 
     public CustomeWebview(Context context, AttributeSet attr) {
         super(context, attr);
